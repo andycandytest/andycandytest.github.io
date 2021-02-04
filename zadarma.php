@@ -1,5 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Пример</title>
+    </head>
+    <body>
 
-<html><body>
-<p>This is a paragraph.</p>
-<?php if (isset($_GET['zd_echo'])) exit($_GET['zd_echo']); ?>
-</body></html>
+        <?php
+        echo "Привет, я - скрипт PHP!";
+        ?>
+
+    </body>
+</html>
