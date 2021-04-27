@@ -2,25 +2,25 @@
 window.amoSocialButtonConfig = {
   onlinechat: {
     theme: {
-      background: 'skyblue', // фон
+      background: 'pink', // фон
       white_space: "normal",
       system_color: 'pink', // цвет системных текстов (статус доставки, дата)
       header: { // можно указать header: false, тогда он вообще не будет отрисован
         background: 'red', // цвет фона верхней части чата
         color: 'black', // цвет текста верхней части
-        white_space: "normal",
+        white-space: normal,
       },
       message: {
         outgoing_background: 'red', // фон сообщения пользователя
         outgoing_color: 'white', // цвет текста сообщения пользователя
         incoming_background: 'blue', // фон ответа оператора
         incoming_color: 'white', // цвет текста ответа оператора
-        white_space: "normal",
+        white-space: normal,
       },
       compose: {
         height: 70, // минимальная высота в пикселях (максимальная 170px, изменить ее нельзя)
         button_background: 'black', // фон кнопки отправки
-        white_space: "normal",
+        white-space: normal,
       }
     },
   },
@@ -28,3 +28,12 @@ window.amoSocialButtonConfig = {
 </script>
 
 <script>(function(a,m,o,c,r,m){a[m]={id:"48489",hash:"17c56bbe304495ad0ec57d0a4313793feb0f33956178a42895692bca8f44080d",locale:"ru",inline:true,setMeta:function(p){this.params=(this.params||[]).concat([p])}};a[o]=a[o]||function(){(a[o].q=a[o].q||[]).push(arguments)};var d=a.document,s=d.createElement('script');s.async=true;s.id=m+'_script';s.src='https://gso.amocrm.ru/js/button.js?1619543823';d.head&&d.head.appendChild(s)}(window,0,'amoSocialButton',0,0,'amo_social_button'));</script>
+
+
+<script>
+  amo_social_button.setMeta({
+  bot_params: {
+    white-space: normal
+  }
+});
+ </script>
