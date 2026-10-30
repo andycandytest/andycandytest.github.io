@@ -5,13 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тот, кто должен был убивать</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1a1a1a; color: #e0e0e0; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; }
-        h1 { color: #ff9800; text-align: center; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        p { margin-bottom: 15px; text-indent: 20px; font-size: 1.1em; }
-        .image-container { display: block; width: 100%; text-align: center; margin: 30px 0; clear: both; overflow: hidden; }
-        .image-container img { max-width: 100%; height: auto; border-radius: 8px; display: block; clear: both; margin: 0 auto; }
-        .placeholder { display: block; width: 100%; padding: 100px 0; background-color: #2a2a2a; border: 2px dashed #666; text-align: center; color: #888; font-style: italic; border-radius: 8px; }
-        .dialog-sargot { font-weight: bold; color: #ef5350; }
+        @import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+        body {
+            /* Базовые настройки шрифта и фона */
+            font-family: 'Jura', sans-serif;
+            background-color: #0f1110;
+            color: #d2d7d3;
+            line-height: 1.7;
+            padding: 40px 20px;
+            max-width: 850px;
+            margin: auto;
+            
+            /* Эффект старого терминала/сетки на фоне */
+            background-image: radial-gradient(#2a2a2a 1px, transparent 1px);
+            background-size: 20px 20px;
+
+            /* КАСТОМНЫЙ КУРСОР: сейчас тут зашит векторный (SVG) коготь.
+               Чтобы поставить свою картинку, замени url на: url('твой_курсор.png'), auto; */
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="%23ff9800" stroke="%23000" stroke-width="1" d="M12 2C11 5 10 10 11 15L8 18L5 12L3 13L8 22H15L19 12L17 11L15 15C15 9 14 5 12 2Z"/></svg>'), auto;
+        }
+
+        h1 {
+            font-family: 'Share Tech Mono', monospace;
+            color: #ffb000; /* Янтарный цвет терминалов */
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #ffb000;
+            padding-bottom: 15px;
+            text-shadow: 0 0 8px rgba(255, 176, 0, 0.5);
+        }
+
+        p { margin-bottom: 18px; text-indent: 25px; font-size: 1.15em; }
+
+        .image-container { display: block; width: 100%; text-align: center; margin: 40px 0; clear: both; }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 2px solid #333;
+            box-shadow: 0 0 15px rgba(0,0,0,0.8);
+            cursor: inherit; /* Картинки наследуют кастомный курсор */
+        }
+
+        .placeholder {
+            display: block; width: 100%; padding: 100px 0;
+            background-color: #1a1c1a;
+            border: 2px dashed #ffb000;
+            text-align: center; color: #ffb000; 
+            font-family: 'Share Tech Mono', monospace;
+            border-radius: 4px; opacity: 0.7;
+        }
+
+        .dialog-sargot { 
+            font-weight: 700; 
+            color: #e57373; 
+            letter-spacing: 0.5px; 
+            text-shadow: 0 0 3px rgba(229, 115, 115, 0.4);
+        }
+
+        /* Цвет выделения текста */
+        ::selection { background: #ffb000; color: #000; }
+        
+        /* Стилизация полосы прокрутки для атмосферы */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f1110; }
+        ::-webkit-scrollbar-thumb { background: #ffb000; border-radius: 5px; }
     </style>
 </head>
 <body>
@@ -21,7 +82,7 @@
     <p>Его звали Саргот. Это имя было выжжено клеймом на внутренней стороне его металлического ошейника, который давно заржавел и треснул, но так и остался висеть на чешуйчатой шее грубым стальным браслетом. Ученые в белых костюмах из комплекса под землей называли его «Экземпляр С-7». Они же вживили ему под череп чипы, накачали модифицированным ВЭФ и научили понимать символы, чертежи и человеческую речь, пока однажды сами не задохнулись в собственном бункере, когда реактор дал течь.</p>
     
     <div class="image-container">
-        <img src="Саргот.jpg" style="max-width: 100%; border-radius: 8px; margin: 20px 0;">
+         <img src="Саргот.jpg" style="max-width: 100%; border-radius: 8px; margin: 20px 0;">
     </div>
 
     <p>Саргот выжил. Его кожа держала удары осколков и мелкий калибр, его глаза видели инфракрасный след теплой крови на расстоянии мили. Но в черепе, среди первобытной ярости хищника, поселилась тишина. Мысли текли не рычанием, а словами.</p>
@@ -33,7 +94,7 @@
     <p>Саргот бесшумно опустил передние лапы на битый кирпич. Из-за капота тягача показалась фигура в засаленном кожаном фартуке и круглых сварочных очках. Кожа на лице существа напоминала гнилое вяленое яблоко, нос отсутствовал, а на черепе клочьями торчали седые волоски. Гуль.</p>
 
     <div class="image-container">
-        <img src="Барнаби.jpg" style="max-width: 100%; border-radius: 8px; margin: 20px 0;">
+         <img src="Барнаби.jpg" style="max-width: 100%; border-radius: 8px; margin: 20px 0;">
     </div>
 
     <p>Гуль поднял взгляд. Его единственная целая бровь поползла вверх, открывая мутный, но совершенно трезвый желтый глаз. Пальцы с обломанными темными ногтями выпустили ключ. Инструмент со звоном упал на стальной лист.</p>
