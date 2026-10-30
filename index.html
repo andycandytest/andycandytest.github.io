@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тот, кто должен был убивать</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☢️</text></svg>">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;700&family=Share+Tech+Mono&display=swap');
 
@@ -74,13 +75,12 @@
         ::-webkit-scrollbar-track { background: #0f1110; }
         ::-webkit-scrollbar-thumb { background: #ffb000; border-radius: 5px; }
         /* Кнопка Радио */
-#music-btn {
-    display: block; margin: 0 auto 30px auto;
+.radio-btn {
     background: transparent; border: 1px solid #ffb000; color: #ffb000;
     font-family: 'Share Tech Mono', monospace; font-size: 1.1em;
-    padding: 10px 20px; cursor: inherit; transition: all 0.3s;
+    padding: 10px 20px; cursor: inherit; transition: all 0.3s; margin: 0 5px;
 }
-#music-btn:hover { background: #ffb000; color: #000; }
+.radio-btn:hover { background: #ffb000; color: #000; }
 
 /* Оглавление (Якоря) */
 .toc {
@@ -107,9 +107,11 @@ html { scroll-behavior: smooth; }
     <h1>Тот, кто должен был убивать</h1>
 
     <!-- Музыка (замени src на ссылку на свой mp3 файл) -->
-<audio id="bg-music" loop>
-    <source src="Walking_the_Scorched_Ridge.mp3" type="audio/mpeg">
-</audio>
+<div style="text-align: center; margin-bottom: 30px;">
+    <audio id="bg-music"></audio>
+    <button id="music-btn" class="radio-btn" onclick="toggleMusic()">[ Включить Радио Мохаве ]</button>
+    <button id="next-btn" class="radio-btn" onclick="nextTrack()">[ Сменить частоту >> ]</button>
+</div>
 <button id="music-btn" onclick="toggleMusic()">[ Включить Радио Мохаве ]</button>
 
 <!-- Оглавление -->
@@ -381,18 +383,40 @@ html { scroll-behavior: smooth; }
     </div>
 
 
-    <script>
+   <script>
+    var playlist = [
+        "Walking_the_Scorched_Ridge.mp3",
+        "Wire_and_Bone.mp3",
+        "Last_Call_at_the_Badlands.mp3"
+    ];
+    
+    var currentTrack = 0;
+    var music = document.getElementById("bg-music");
+    var playBtn = document.getElementById("music-btn");
+
+    music.src = playlist[currentTrack];
+
     function toggleMusic() {
-        var music = document.getElementById("bg-music");
-        var btn = document.getElementById("music-btn");
         if (music.paused) {
             music.play();
-            btn.innerHTML = "[ Выключить Радио ]";
+            playBtn.innerHTML = "[ Выключить Радио ]";
         } else {
             music.pause();
-            btn.innerHTML = "[ Включить Радио Мохаве ]";
+            playBtn.innerHTML = "[ Включить Радио Мохаве ]";
         }
     }
+
+    function nextTrack() {
+        currentTrack++;
+        if (currentTrack >= playlist.length) {
+            currentTrack = 0; 
+        }
+        music.src = playlist[currentTrack];
+        music.play();
+        playBtn.innerHTML = "[ Выключить Радио ]";
+    }
+
+    music.addEventListener("ended", nextTrack);
 </script>
 </body>
 </html>
