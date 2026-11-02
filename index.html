@@ -177,6 +177,24 @@ html { scroll-behavior: smooth; }
     color: #ffb000;
     text-shadow: 0 0 5px rgba(255, 176, 0, 0.4);
 }
+        .vats-container {
+    /* Эти три строчки не дадут блоку вылезти за пределы экрана */
+    max-width: 100%;
+    box-sizing: border-box;
+    
+    /* Заставляет текст переноситься на новую строку, сохраняя пробелы */
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* А это правило сработает только на телефонах (экраны меньше 768 пикселей) */
+@media (max-width: 768px) {
+    .vats-container {
+        padding: 10px; /* Уменьшаем внутренние отступы, чтобы было больше места для текста */
+        font-size: 14px; /* Чуть уменьшаем шрифт (подбери размер под свой дизайн) */
+    }
+}
     </style>
 </head>
 <body>
