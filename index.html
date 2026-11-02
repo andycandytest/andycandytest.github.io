@@ -188,12 +188,14 @@ html { scroll-behavior: smooth; }
 /* Правило для телефонов */
 @media (max-width: 768px) {
     .vats-terminal {
-        padding: 8px; /* Делаем рамку чуть тоньше, освобождая место для текста */
+        padding: 8px 10px;
+        overflow-x: auto; /* Добавляет скролл внутри рамки, если текст чуть-чуть не влезет */
     }
     
     .vats-terminal p {
-        font-size: 12px; /* Уменьшаем сам текст терминала */
-        line-height: 1.4; /* Делаем межстрочный интервал комфортным */
+        font-size: 10px; /* Делаем шрифт маленьким */
+        white-space: nowrap; /* Жестко запрещаем ломать и переносить строки */
+        word-break: normal;
         margin: 6px 0;
     }
 }
