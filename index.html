@@ -126,7 +126,37 @@ html { scroll-behavior: smooth; }
     margin-top: -6px;
     box-shadow: 0 0 5px rgba(255, 176, 0, 0.8);
 }
-#volume-slider:focus { outline: none; }       
+#volume-slider:focus { outline: none; }
+        .character-card {
+    width: 320px; /* Можешь поменять под нужный размер под дизайн сайта */
+    height: 240px; 
+    overflow: hidden;
+}
+
+.animated-portrait {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* Картинка с открытым глазом по умолчанию */
+    background-image: url('barnaby_open.png'); 
+    animation: blink 4s infinite steps(1);
+}
+
+@keyframes blink {
+    0%, 94% {
+        /* Глаз открыт большую часть времени */
+        background-image: url('open.png');
+    }
+    95%, 97% {
+        /* На доли секунды меняется на кадр с закрытым глазом */
+        background-image: url('close.png');
+    }
+    98%, 100% {
+        /* Снова открывается */
+        background-image: url('open.png');
+    }
+}
     </style>
 </head>
 <body>
@@ -171,6 +201,9 @@ html { scroll-behavior: smooth; }
     <p>— Если ты из банды тех недоумков из карьера, то учти: патронов у меня нет, жрать тут нечего, а медная проволока заминирована, — проскрипел голос, похожий на трение двух наждачных кругов.</p>
     <p>Саргот бесшумно опустил передние лапы на битый кирпич. Из-за капота тягача показалась фигура в засаленном кожаном фартуке и круглых сварочных очках. Кожа на лице существа напоминала гнилое вяленое яблоко, нос отсутствовал, а на черепе клочьями торчали седые волоски. Гуль.</p>
 
+    <div class="character-card">
+        <div class="animated-portrait" id="barnaby-portrait"></div>
+    </div>
     <div class="image-container">
          <img src="Барнаби.jpg" style="max-width: 100%; border-radius: 8px; margin: 20px 0;">
     </div>
