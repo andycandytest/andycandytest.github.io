@@ -168,24 +168,41 @@ html { scroll-behavior: smooth; }
     border-radius: 4px;
 }
 
+.vats-terminal {
+    background-color: rgba(0, 20, 10, 0.85);
+    border: 1px solid #00ff66;
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
+    padding: 12px 16px;
+    margin: 20px 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ff66;
+    border-radius: 4px;
+    
+    /* Правила для адаптивности и переноса строк */
+    max-width: 100%;
+    box-sizing: border-box;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
 .vats-terminal p {
     margin: 4px 0;
     color: #00ff66;
     text-shadow: 0 0 5px rgba(0, 255, 102, 0.5);
 }
-        .barnaby-text {
+
+.barnaby-text {
     color: #ffb000;
     text-shadow: 0 0 5px rgba(255, 176, 0, 0.4);
 }
-        .vats-container {
-    /* Эти три строчки не дадут блоку вылезти за пределы экрана */
-    max-width: 100%;
-    box-sizing: border-box;
-    
-    /* Заставляет текст переноситься на новую строку, сохраняя пробелы */
-    white-space: pre-wrap; 
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+
+/* Правило для телефонов */
+@media (max-width: 768px) {
+    .vats-terminal {
+        padding: 10px;
+        font-size: 14px;
+    }
 }
 
 /* А это правило сработает только на телефонах (экраны меньше 768 пикселей) */
